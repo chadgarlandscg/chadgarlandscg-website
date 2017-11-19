@@ -1,6 +1,5 @@
 import React from 'react';
-import Table from './Table';
-import Welcome from './Welcome';
+import Home from './Home';
 import { Route, Switch } from 'react-router';
 
 const App = props => {
@@ -9,11 +8,7 @@ const App = props => {
             <Switch>
                 <Route
                     exact path="/"
-                    render={() => <Welcome/>}
-                />
-                <Route
-                    path="/table"
-                    render={() => <Table/>}
+                    render={() => <Home/>}
                 />
             </Switch>
         </div>

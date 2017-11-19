@@ -6,6 +6,7 @@ var watchify = require('watchify');
 require('dotenv').config()
 
 var b = browserify("./web/src/index.js", {
+        debug: true,
         cache: {},
         packageCache: {},
         plugin: [watchify]

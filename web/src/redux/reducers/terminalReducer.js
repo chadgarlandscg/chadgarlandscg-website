@@ -1,23 +1,24 @@
-import { appState } from '../store/templates/appState'
+import { terminalState } from '../store/templates/terminalState'
 
 import {
-    SOME_ACTION, GENERIC_ERROR
+    UPDATE_TERMINAL, GENERIC_ERROR
 } from '../actions/index'
 
-export default (state = appState, action) => {
+export default (state = terminalState, action) => {
     switch (action.type) {
-        case SOME_ACTION: {
-            return {
-                ...state,
-                sample: action.payload
-            }
-        }
         case GENERIC_ERROR: {
             return {
                 ...state,
                 error: action.error,
                 awaitingResponse: false
             }
+        }
+        case UPDATE_TERMINAL: {
+          return {
+            ...state,
+            text: action.text,
+            more: false,
+          }
         }
         default: {
             return state

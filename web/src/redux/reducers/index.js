@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import appState from './appReducer'
+import terminalState from './terminalReducer'
 
 export default combineReducers({
     router: routerReducer,
-    appState
+    terminalState
 })

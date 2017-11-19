@@ -8,7 +8,6 @@ import history from './redux/store/history'
 import registerServiceWorker from './registerServiceWorker'
 import { ConnectedRouter } from 'react-router-redux'
 import { Route } from 'react-router'
-import 'date-input-polyfill'
 
 ReactDOM.render(
     <Provider store={store}>
