@@ -1,7 +1,8 @@
 import { terminalState } from '../store/templates/terminalState'
 
 import {
-    UPDATE_TERMINAL, GENERIC_ERROR, RESET_TERMINAL
+    UPDATE_TERMINAL, GENERIC_ERROR, RESET_TERMINAL,
+    CHANGE_TERMINAL_INPUT
 } from '../actions/index'
 
 export default (state = terminalState, action) => {
@@ -16,8 +17,7 @@ export default (state = terminalState, action) => {
         case UPDATE_TERMINAL: {
           return {
             ...state,
-            text: action.text,
-            more: false,
+            textIndex: action.textIndex,
             shouldRenderTerminal: false,
           }
         }
@@ -25,6 +25,12 @@ export default (state = terminalState, action) => {
           return {
             ...state,
             shouldRenderTerminal: true,
+          }
+        }
+        case CHANGE_TERMINAL_INPUT: {
+          return {
+            ...state,
+            terminalInputText: action.text
           }
         }
         default: {

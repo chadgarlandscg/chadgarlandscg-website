@@ -7,14 +7,18 @@ export default class Terminal extends React.Component {
     if (!this.props.shouldRenderTerminal) this.props.resetTerminal();
   }
   render() {
-    const { text, onTypingDone, shouldRenderTerminal } = this.props
+    const { text, textIndex, onTypingDone, shouldRenderTerminal, terminalInputText, changeTerminalInput } = this.props
+    const typist = (shouldRenderTerminal &&
+      <Typist
+        onTypingDone={onTypingDone}
+      >
+      {text[textIndex]}
+      </Typist>
+    )
     return (
-      <div id='terminal'>
-        {shouldRenderTerminal && <Typist
-          onTypingDone={onTypingDone}
-        >
-        {text}
-        </Typist>}
+      <div id='terminal' className="terminal-style">
+        <input size={terminalInputText.length || 1} className="terminal-style" value={terminalInputText} onChange={(element) => changeTerminalInput(element.target.value)}/>
+        {typist}
       </div>
     )
   }

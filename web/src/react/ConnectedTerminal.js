@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { updateText } from '../redux/actions/index'
 import Terminal from './Terminal'
-import { updateTerminal, resetTerminal } from '../redux/actions/index'
+import { updateTerminal, resetTerminal, changeTerminalInput } from '../redux/actions/index'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onTypingDone: () => dispatch(updateTerminal()),
-    resetTerminal: () => dispatch(resetTerminal())
+    resetTerminal: () => dispatch(resetTerminal()),
+    changeTerminalInput: (text) => dispatch(changeTerminalInput(text)),
   }
 }
 
