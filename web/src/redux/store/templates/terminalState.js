@@ -12,12 +12,19 @@ const noText = ['']
 
 const funText = [
   'You awake disoriented.',
-  'There\'s a loud hum coming from every direction, but it\'s too dark to see . . .',
-  'What do you do?'
+  'It\'s too dark to see . . .',
+  'What do you do? (test)',
+]
+
+const ultimateText = [
+  'What is the answer',
+  'to the ultimate question',
+  '. . .',
+  'of life, the universe, and everything?',
 ]
 
 export const terminalState = {
-    text: funText,
+    text: ultimateText,
     terminalInputText: '',
     shouldRenderTerminal: true,
     textIndex: 0,

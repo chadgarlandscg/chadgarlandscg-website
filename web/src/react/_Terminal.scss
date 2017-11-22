@@ -1,22 +1,21 @@
 .terminal-style {
-  font-size: 50px;
+  font-size: 20px;
   font-family: $game-font;
   color: lightgreen;
   background: black;
 }
-
 #terminal {
   height: 50%;
   input {
     border: none;
-    display: inline-block;
-    color: transparent;
-    text-shadow: 0 0 0 lightgreen;
+    // display: inline-block;
+    // color: transparent;
+    // text-shadow: 0 0 0 lightgreen;
     &:focus {
       outline: none;
     }
   }
   .Typist {
-    display: inline-block;
+    // display: inline-block;
   }
 }

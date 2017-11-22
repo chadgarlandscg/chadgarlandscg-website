@@ -7,18 +7,35 @@ export default class Terminal extends React.Component {
     if (!this.props.shouldRenderTerminal) this.props.resetTerminal();
   }
   render() {
-    const { text, textIndex, onTypingDone, shouldRenderTerminal, terminalInputText, changeTerminalInput } = this.props
+    const { text, textIndex, onTypingDone, shouldRenderTerminal, terminalInputText, changeTerminalInput, submitTerminalInput } = this.props
+    this.onTypingDone = () => {
+      onTypingDone()
+      if (textIndex === text.length-1) this.terminalInput.focus();
+    }
     const typist = (shouldRenderTerminal &&
       <Typist
-        onTypingDone={onTypingDone}
+        onTypingDone={this.onTypingDone}
+        cursor={{
+          show: false
+        }}
       >
       {text[textIndex]}
+      <Typist.Delay ms={500} />
       </Typist>
     )
     return (
       <div id='terminal' className="terminal-style">
-        <input size={terminalInputText.length || 1} className="terminal-style" value={terminalInputText} onChange={(element) => changeTerminalInput(element.target.value)}/>
         {typist}
+        <input
+          ref={input => { this.terminalInput = input }}
+          className="terminal-style"
+          // size={terminalInputText.length || 1}
+          value={terminalInputText}
+          onChange={element => changeTerminalInput(element.target.value)}
+          onKeyPress={event => {
+            if (event.key === 'Enter') submitTerminalInput();
+          }}
+        />
       </div>
     )
   }

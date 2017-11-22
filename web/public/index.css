@@ -5,7 +5,7 @@
   font-weight: normal;
   font-style: normal; }
 .terminal-style {
-  font-size: 50px;
+  font-size: 20px;
   font-family: "game-font", Helvetica, sans-serif;
   color: lightgreen;
   background: black; }
@@ -13,14 +13,9 @@
 #terminal {
   height: 50%; }
   #terminal input {
-    border: none;
-    display: inline-block;
-    color: transparent;
-    text-shadow: 0 0 0 lightgreen; }
+    border: none; }
     #terminal input:focus {
       outline: none; }
-  #terminal .Typist {
-    display: inline-block; }
 
 #home {
   height: 100%; }
